@@ -1,4 +1,6 @@
-package com.gordon.kotlin_im.contract
+package com.gordon.kotlin_im.presenter
+
+import com.gordon.kotlin_im.contract.SplashContract
 
 /**
  *    author : gordon
@@ -9,7 +11,8 @@ package com.gordon.kotlin_im.contract
  *
  */
 //在构造方法中传递view，在view中创建presenter
-class SplashPresenter(val view: SplashContract.View) : SplashContract.Presenter {
+class SplashPresenter(val view: SplashContract.View) :
+    SplashContract.Presenter {
 
     override fun checkLoginStatus() {
         if (isLoggedIn()) {

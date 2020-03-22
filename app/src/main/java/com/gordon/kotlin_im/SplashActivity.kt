@@ -2,7 +2,7 @@ package com.gordon.kotlin_im
 
 import android.os.Handler
 import com.gordon.kotlin_im.contract.SplashContract
-import com.gordon.kotlin_im.contract.SplashPresenter
+import com.gordon.kotlin_im.presenter.SplashPresenter
 import org.jetbrains.anko.startActivity
 
 /**

@@ -1,5 +1,7 @@
 package com.gordon.kotlin_im.contract
 
+import com.gordon.kotlin_im.presenter.BasePresenter
+
 /**
  *    author : gordon
  *    e-mail : gordon_sun07@163.com
@@ -10,7 +12,7 @@ package com.gordon.kotlin_im.contract
  */
 class SplashContract {
 
-    interface Presenter:BasePresenter {
+    interface Presenter: BasePresenter {
         fun checkLoginStatus() //检查登录状态
     }
 

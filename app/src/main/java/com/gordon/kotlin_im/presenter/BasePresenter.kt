@@ -1,4 +1,4 @@
-package com.gordon.kotlin_im.contract
+package com.gordon.kotlin_im.presenter
 
 /**
  *    author : gordon
