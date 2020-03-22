@@ -1,6 +1,9 @@
 package com.gordon.kotlin_im
 
+import android.view.KeyEvent
+import android.widget.TextView
 import com.gordon.kotlin_im.contract.LoginContract
+import com.gordon.kotlin_im.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
@@ -13,7 +16,9 @@ import org.jetbrains.anko.toast
  *    desc   : 创建登录界面
  *
  */
-class LoginActivity:BaseActivity(), LoginContract.View {
+class LoginActivity : BaseActivity(), LoginContract.View {
+
+    val presenter = LoginPresenter(this)
 
     override fun getLayoutResId(): Int {
         return R.layout.activity_login
@@ -21,7 +26,25 @@ class LoginActivity:BaseActivity(), LoginContract.View {
 
     override fun init() {
         super.init()
+        login.setOnClickListener { login() }
+        //方法1
+        password.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+            override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
+                login()
+                return true
+            }
+        })
+        //方法2
+        /*password.setOnEditorActionListener { v, actionId, event ->
+            login()
+            true
+        }*/
+    }
 
+    fun login() {
+        val userNameString = userName.text.trim().toString()
+        val passwordString = password.text.trim().toString()
+        presenter.login(userNameString,passwordString)
     }
 
     override fun onUserNameError() {
