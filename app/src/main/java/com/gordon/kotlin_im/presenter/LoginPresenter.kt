@@ -34,10 +34,12 @@ class LoginPresenter(val view:LoginContract.View) : LoginContract.Presenter {
                 super.onSuccess()
                 EMClient.getInstance().groupManager().loadAllGroups()
                 EMClient.getInstance().chatManager().loadAllConversations()
+                uiThread { view.onLoggedInSuccess() }
             }
 
             override fun onError(p0: Int, p1: String?) {
                 super.onError(p0, p1)
+                uiThread { view.onLoggedInFailed() }
             }
         })
     }

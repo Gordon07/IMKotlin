@@ -1,5 +1,9 @@
 package com.gordon.kotlin_im.presenter
 
+import android.os.Handler
+import android.os.Looper
+
+
 /**
  *    author : gordon
  *    e-mail : gordon_sun07@163.com
@@ -9,4 +13,19 @@ package com.gordon.kotlin_im.presenter
  *
  */
 interface BasePresenter {
+
+    companion object {
+        val handler by lazy {
+            Handler(Looper.getMainLooper())
+        }
+    }
+
+    //线程切换
+    fun uiThread(f: () -> Unit) {
+        handler.post(object : Runnable {
+            override fun run() {
+                f()
+            }
+        })
+    }
 }
