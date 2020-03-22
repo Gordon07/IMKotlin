@@ -35,4 +35,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.github.shaunxiao:kotlinGameEngine:v0.0.4'
+    compile "org.jetbrains.anko:anko-commons:$anko_version"//Anko通用库
+    compile "org.jetbrains.anko:anko-sqlite:$anko_version"//Anko sqlite库
 }
