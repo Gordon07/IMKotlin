@@ -1,6 +1,7 @@
 package com.gordon.kotlin_im.presenter
 
 import com.gordon.kotlin_im.contract.SplashContract
+import com.hyphenate.chat.EMClient
 
 /**
  *    author : gordon
@@ -24,6 +25,6 @@ class SplashPresenter(val view: SplashContract.View) :
 
     //是否登录，实现在环信sdk
     private fun isLoggedIn(): Boolean {
-        return false
+        return EMClient.getInstance().isConnected && EMClient.getInstance().isLoggedInBefore
     }
 }
