@@ -2,6 +2,7 @@ package com.gordon.kotlin_im
 
 import android.os.Handler
 import com.gordon.kotlin_im.contract.SplashContract
+import com.gordon.kotlin_im.contract.SplashPresenter
 import org.jetbrains.anko.startActivity
 
 /**
@@ -9,10 +10,12 @@ import org.jetbrains.anko.startActivity
  *    e-mail : gordon_sun07@163.com
  *    date   : 2020/3/22 17:30
  *    version: 1.0
- *    desc   :
+ *    desc   : 闪屏页
  *
  */
-class SplashActivity : BaseActivity(),SplashContract.View {
+class SplashActivity : BaseActivity(), SplashContract.View {
+
+    val presenter = SplashPresenter(this)
 
     //定义常量
     companion object {
@@ -22,6 +25,11 @@ class SplashActivity : BaseActivity(),SplashContract.View {
     //定义handler
     val handler by lazy {
         Handler()
+    }
+
+    override fun init() {
+        super.init()
+        presenter.checkLoginStatus()
     }
 
     override fun getLayoutResId(): Int {
