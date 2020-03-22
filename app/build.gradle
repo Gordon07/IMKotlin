@@ -5,7 +5,6 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
 
-
     defaultConfig {
         applicationId "com.gordon.kotlin_im"
         minSdkVersion 16
@@ -23,6 +22,15 @@ android {
         }
     }
 
+    //huanxin sdk start
+    //use legacy for android 6.0
+    useLibrary 'org.apache.http.legacy'
+    //自3.6.0开始需要java8的支持
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    //huanxin sdk end
 }
 
 dependencies {
@@ -37,4 +45,12 @@ dependencies {
     implementation 'com.github.shaunxiao:kotlinGameEngine:v0.0.4'
     compile "org.jetbrains.anko:anko-commons:$anko_version"//Anko通用库
     compile "org.jetbrains.anko:anko-sqlite:$anko_version"//Anko sqlite库
+
+    //huanxin sdk start
+    api 'com.android.support:appcompat-v7:28.0.0-alpha1'
+    // Google firebase cloud messaging
+    implementation 'com.google.android.gms:play-services-base:11.4.0'
+    implementation 'com.google.firebase:firebase-messaging:11.4.0'
+    api 'com.hyphenate:hyphenate-sdk:3.6.1'
+    //huanxin sdk end
 }

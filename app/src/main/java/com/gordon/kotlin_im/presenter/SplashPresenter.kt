@@ -22,6 +22,7 @@ class SplashPresenter(val view: SplashContract.View) :
         }
     }
 
+    //是否登录，实现在环信sdk
     private fun isLoggedIn(): Boolean {
         return false
     }
