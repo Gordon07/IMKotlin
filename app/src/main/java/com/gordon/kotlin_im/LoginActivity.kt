@@ -1,7 +1,10 @@
 package com.gordon.kotlin_im
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.view.KeyEvent
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import com.gordon.kotlin_im.contract.LoginContract
 import com.gordon.kotlin_im.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*
@@ -28,7 +31,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
         super.init()
         login.setOnClickListener { login() }
         //方法1
-        password.setOnEditorActionListener(object : TextView.OnEditorActionListener{
+        password.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
                 login()
                 return true
@@ -44,9 +47,40 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     fun login() {
         //隐藏软键盘
         hideSoftKeyboard()
-        val userNameString = userName.text.trim().toString()
-        val passwordString = password.text.trim().toString()
-        presenter.login(userNameString,passwordString)
+        if (hasWriteExternalStoragePermission()) {
+            val userNameString = userName.text.trim().toString()
+            val passwordString = password.text.trim().toString()
+            presenter.login(userNameString, passwordString)
+        } else {
+            applyWriteExternalStoragePermission()
+        }
+
+    }
+
+    private fun applyWriteExternalStoragePermission() {
+        val permission = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        ActivityCompat.requestPermissions(this, permission, 0)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            //同意
+            login()
+        } else {
+            //toast 拒绝
+            toast("用户拒绝")
+        }
+    }
+
+    private fun hasWriteExternalStoragePermission(): Boolean {
+        val result =
+            ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        return result == PackageManager.PERMISSION_GRANTED
     }
 
     override fun onUserNameError() {
