@@ -29,6 +29,9 @@ class LoginActivity : BaseActivity(), LoginContract.View {
 
     override fun init() {
         super.init()
+        newUser.setOnClickListener {
+            startActivity<RegisterActivity>()
+        }
         login.setOnClickListener { login() }
         //方法1
         password.setOnEditorActionListener(object : TextView.OnEditorActionListener {
