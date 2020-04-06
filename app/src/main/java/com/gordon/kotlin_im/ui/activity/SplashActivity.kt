@@ -44,7 +44,9 @@ class SplashActivity : BaseActivity(), SplashContract.View {
         handler.postDelayed(object : Runnable {
             override fun run() {
                 //依赖anko库实现跳转函数
-                startActivity<LoginActivity>()
+                //startActivity<LoginActivity>()
+                //Todo 调试阶段跳过登录界面
+                startActivity<MainActivity>()
                 finish()
             }
         }, DELAY)
