@@ -32,6 +32,7 @@ class LoginPresenter(val view:LoginContract.View) : LoginContract.Presenter {
             //在子线程回调的
             override fun onSuccess() {
                 super.onSuccess()
+                //model层实现
                 EMClient.getInstance().groupManager().loadAllGroups()
                 EMClient.getInstance().chatManager().loadAllConversations()
                 uiThread { view.onLoggedInSuccess() }
