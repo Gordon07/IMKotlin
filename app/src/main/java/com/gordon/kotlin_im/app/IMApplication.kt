@@ -51,6 +51,4 @@ class IMApplication: Application() {
             BmobIM.registerDefaultMessageHandler(BmobMessageHandler())
         }
     }
-
-
 }
