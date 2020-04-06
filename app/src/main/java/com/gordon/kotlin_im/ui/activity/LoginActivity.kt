@@ -1,10 +1,12 @@
-package com.gordon.kotlin_im
+package com.gordon.kotlin_im.ui.activity
 
 import android.Manifest
 import android.content.pm.PackageManager
 import android.view.KeyEvent
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import com.gordon.kotlin_im.ui.BaseActivity
+import com.gordon.kotlin_im.R
 import com.gordon.kotlin_im.contract.LoginContract
 import com.gordon.kotlin_im.presenter.LoginPresenter
 import kotlinx.android.synthetic.main.activity_login.*

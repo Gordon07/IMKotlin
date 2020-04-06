@@ -1,7 +1,9 @@
-package com.gordon.kotlin_im
+package com.gordon.kotlin_im.ui.activity
 
 import android.view.KeyEvent
 import android.widget.TextView
+import com.gordon.kotlin_im.ui.BaseActivity
+import com.gordon.kotlin_im.R
 import com.gordon.kotlin_im.contract.RegisterContract
 import com.gordon.kotlin_im.presenter.RegisterPresenter
 import kotlinx.android.synthetic.main.activity_register.*

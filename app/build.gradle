@@ -58,4 +58,7 @@ dependencies {
     implementation 'cn.bmob.android:bmob-im:2.1.4@aar'
     implementation 'cn.bmob.android:bmob-sdk:3.7.3'
     implementation 'io.reactivex:rxandroid:1.2.0'
+    implementation ('com.roughike:bottom-bar:2.3.1'){
+        exclude module: 'design'
+    }
 }

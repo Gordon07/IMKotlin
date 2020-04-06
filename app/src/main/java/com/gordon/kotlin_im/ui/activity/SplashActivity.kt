@@ -1,6 +1,8 @@
-package com.gordon.kotlin_im
+package com.gordon.kotlin_im.ui.activity
 
 import android.os.Handler
+import com.gordon.kotlin_im.ui.BaseActivity
+import com.gordon.kotlin_im.R
 import com.gordon.kotlin_im.contract.SplashContract
 import com.gordon.kotlin_im.presenter.SplashPresenter
 import org.jetbrains.anko.startActivity

@@ -1,4 +1,4 @@
-package com.gordon.kotlin_im
+package com.gordon.kotlin_im.ui
 
 import android.app.ProgressDialog
 import android.content.Context
