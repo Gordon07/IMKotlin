@@ -61,4 +61,5 @@ dependencies {
     implementation ('com.roughike:bottom-bar:2.3.1'){
         exclude module: 'design'
     }
+    implementation "com.android.support:recyclerview-v7:$support_version"
 }
