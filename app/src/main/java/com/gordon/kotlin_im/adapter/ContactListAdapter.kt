@@ -21,7 +21,7 @@ class ContactListAdapter(val context: Context) : RecyclerView.Adapter<RecyclerVi
     }
 
     override fun getItemCount(): Int {
-
+        return 0;
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
