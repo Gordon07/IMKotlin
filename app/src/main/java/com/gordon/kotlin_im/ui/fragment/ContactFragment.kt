@@ -44,7 +44,7 @@ class ContactFragment : BaseFragment(), ContactContract.View {
         recyclerView.apply {
             /*setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
-            adapter = ContactListAdapter(context)*/
+            adapter = ContactListAdapter(context, presenter.contactListItems)*/
         }
 
         //加载联系人数据
