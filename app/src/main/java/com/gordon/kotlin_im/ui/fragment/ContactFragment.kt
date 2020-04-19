@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.header.*
  *    e-mail : gordon_sun07@163.com
  *    date   : 2020/4/6 19:29
  *    version: 1.0
- *    desc   :
+ *    desc   : 联系人界面
  *
  */
 class ContactFragment : BaseFragment() {
