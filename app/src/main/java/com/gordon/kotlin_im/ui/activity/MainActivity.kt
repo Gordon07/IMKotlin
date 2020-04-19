@@ -2,6 +2,7 @@ package com.gordon.kotlin_im.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.gordon.kotlin_im.R
 import com.gordon.kotlin_im.factory.FragmentFactory
 import com.gordon.kotlin_im.ui.BaseActivity
@@ -16,6 +17,7 @@ class MainActivity : BaseActivity() {
     override fun init() {
         super.init()
         bottomBar.setOnTabReselectListener { tabId ->
+            Log.e("MainActivity", "tabId: " + tabId);
             val beginTransaction = supportFragmentManager.beginTransaction()
             beginTransaction.replace(
                 R.id.fragment_frame,

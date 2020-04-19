@@ -45,6 +45,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun hideSoftKeyboard() {
-        inputMethodManager.hideSoftInputFromWindow(currentFocus.windowToken, 0)
+        inputMethodManager.hideSoftInputFromWindow(currentFocus?.windowToken, 0)
     }
 }
