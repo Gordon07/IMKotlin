@@ -25,8 +25,10 @@ class ContactPresenter(val view: ContactContract.View) : ContactContract.Present
                 val userNames = EMClient.getInstance().contactManager().allContactsFromServer
                 //根据首字符排序
                 userNames.sortBy { it[0] }
-                userNames.forEach {
-                    val contactListItem = ContactListItem(it, it[0].toUpperCase())
+                userNames.forEachIndexed { index, s ->
+                    //判断是否显示首字符
+                    val showFirstLetter = index == 0 || s[0] != userNames[index - 1][0]
+                    val contactListItem = ContactListItem(s, s[0].toUpperCase(), showFirstLetter)
                     contactListItems.add(contactListItem)
                 }
                 uiThread {

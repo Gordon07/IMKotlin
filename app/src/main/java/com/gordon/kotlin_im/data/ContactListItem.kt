@@ -8,5 +8,10 @@ package com.gordon.kotlin_im.data
  *    desc   :
  *
  */
-data class ContactListItem(val userName: String, val firstLetter: Char) {
+data class ContactListItem(
+    val userName: String,
+    val firstLetter: Char,
+    val showFirstLetter: Boolean = true
+) {
+
 }
