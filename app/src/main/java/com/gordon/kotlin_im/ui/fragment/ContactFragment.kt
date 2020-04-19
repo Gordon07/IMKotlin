@@ -24,7 +24,13 @@ class ContactFragment : BaseFragment() {
         super.init()
         headerTitle.text = getString(R.string.contact)
         add.visibility = View.VISIBLE
-        swipeRefreshLayout.setBackgroundColor(resources.getColor(R.color.qq_blue))
-
+        //方法1
+        /*swipeRefreshLayout.setBackgroundColor(resources.getColor(R.color.qq_blue))
+        swipeRefreshLayout.isRefreshing = true;*/
+        //方法2
+        /*swipeRefreshLayout.apply {
+            setColorSchemeResources(R.color.qq_blue)
+            isRefreshing = true;
+        }*/
     }
 }
